@@ -12,10 +12,11 @@ public class EmpMgmtSys {
 		ApplicationContext context = new AnnotationConfigApplicationContext(EmpConfig.class);
 		
 		EmployeeMgmt emp = new EmployeeMgmt();
+		emp.setEmpId(1);
 		
 		EmpDaoImpl empImpl = context.getBean("daoImplementation",EmpDaoImpl.class);
 		
-		empImpl.getAllEmp(emp);
+		empImpl.getEmpById(emp);
 	}
 
 }

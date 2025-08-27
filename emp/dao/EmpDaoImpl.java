@@ -38,11 +38,12 @@ public class EmpDaoImpl implements EmpDao {
 	    if (employees.isEmpty()) {
 	        System.out.println("No employee found with ID: " + employee.getEmpId());
 	    } else {
+		    System.out.println("Displaying Records by ID:");
 	        for (EmployeeMgmt e : employees) {
-	            System.out.println("ID: " + e.getEmpId() + 
-	                               ", Name: " + e.getEmpName() + 
-	                               ", Salary: " + e.getEmpSal() + 
-	                               ", Address: " + e.getEmpAddress());
+	            System.out.println("[ID: " + e.getEmpId() + 
+	                               "], [Name: " + e.getEmpName() + 
+	                               "], [Salary: " + e.getEmpSal() + 
+	                               "], [Address: " + e.getEmpAddress() + "]");
 	        }
 	    }
 		
