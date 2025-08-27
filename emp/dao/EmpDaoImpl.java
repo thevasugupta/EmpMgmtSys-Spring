@@ -73,13 +73,25 @@ public class EmpDaoImpl implements EmpDao {
 	}
 
 	@Override
-	public void deleteEmp(EmployeeMgmt employee) {
+	public void deleteEmpbyId(EmployeeMgmt employee) {
 		String query = "DELETE FROM EMPLOYEES WHERE empId=?";
 	    int rows = template.update(query, employee.getEmpId());
 	    if (rows > 0) {
 	        System.out.println("Employee " + employee.getEmpId() + " deleted successfully!");
 	    } else {
 	        System.out.println("No employee found with ID " + employee.getEmpId());
+	    }
+		
+	}
+	
+	@Override
+	public void deleteEmpbyName(EmployeeMgmt employee) {
+		String query = "DELETE FROM EMPLOYEES WHERE empName=?";
+	    int rows = template.update(query, employee.getEmpName());
+	    if (rows > 0) {
+	        System.out.println("Employee " + employee.getEmpName() + " deleted successfully!");
+	    } else {
+	        System.out.println("No employee found with Name: " + employee.getEmpName());
 	    }
 		
 	}

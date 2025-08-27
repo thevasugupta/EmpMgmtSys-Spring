@@ -13,10 +13,11 @@ public class EmpMgmtSys {
 		
 		EmployeeMgmt emp = new EmployeeMgmt();
 		emp.setEmpId(1);
+		emp.setEmpName("Vasu");
 		
 		EmpDaoImpl empImpl = context.getBean("daoImplementation",EmpDaoImpl.class);
 		
-		empImpl.getEmpById(emp);
+		empImpl.deleteEmpbyId(emp);
 	}
 
 }
