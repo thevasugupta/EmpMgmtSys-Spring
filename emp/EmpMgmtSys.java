@@ -17,7 +17,7 @@ public class EmpMgmtSys {
 		
 		EmpDaoImpl empImpl = context.getBean("daoImplementation",EmpDaoImpl.class);
 		
-		empImpl.deleteEmpbyId(emp);
+		empImpl.deleteEmpbyName(emp);
 	}
 
 }
