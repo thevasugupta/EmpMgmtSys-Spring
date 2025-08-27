@@ -10,6 +10,7 @@ public interface EmpDao {
 	public void deleteEmpbyName(EmployeeMgmt employee);
 	public void updateEmpSal(EmployeeMgmt employee);
 	public void createEmp(EmployeeMgmt employee);
+	public void getSecondHighestSal(EmployeeMgmt employee);
 	
 	
 

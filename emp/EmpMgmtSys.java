@@ -12,12 +12,10 @@ public class EmpMgmtSys {
 		ApplicationContext context = new AnnotationConfigApplicationContext(EmpConfig.class);
 		
 		EmployeeMgmt emp = new EmployeeMgmt();
-		emp.setEmpId(1);
-		emp.setEmpName("Vasu");
 		
 		EmpDaoImpl empImpl = context.getBean("daoImplementation",EmpDaoImpl.class);
 		
-		empImpl.deleteEmpbyName(emp);
+		empImpl.getSecondHighestSal(emp);
 	}
 
 }

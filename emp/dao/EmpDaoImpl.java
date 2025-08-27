@@ -113,7 +113,31 @@ public class EmpDaoImpl implements EmpDao {
 		template.update(query,employee.getEmpId(),employee.getEmpName(),employee.getEmpSal(),employee.getEmpAddress());
 		 System.out.println("New Employee Created : ("+employee.getEmpId()+","+employee.getEmpName()+")");
 	}
-	
-	
 
+	@Override
+	public void getSecondHighestSal(EmployeeMgmt employee) {
+		String query = "SELECT * FROM EMPLOYEES " +
+                "WHERE empSal = (SELECT MAX(empSal) " +
+                "FROM EMPLOYEES WHERE empSal < (SELECT MAX(empSal) FROM EMPLOYEES))";
+		List<EmployeeMgmt> employees = template.query(query, (rs, rowNum) -> {
+	        EmployeeMgmt e = new EmployeeMgmt();
+	        e.setEmpId(rs.getInt("empId"));
+	        e.setEmpName(rs.getString("empName"));
+	        e.setEmpSal(rs.getDouble("empSal"));
+	        e.setEmpAddress(rs.getString("empAddress"));
+	        return e;
+	    });
+
+	    if (employees.isEmpty()) {
+	        System.out.println("Less than two employees exist");
+	    } else {
+		    System.out.println("Employees with 2nd Highest Salary:");
+	        for (EmployeeMgmt e : employees) {
+	            System.out.println("[ID: " + e.getEmpId() + 
+	                               "], [Name: " + e.getEmpName() + 
+	                               "], [Salary: " + e.getEmpSal() + 
+	                               "], [Address: " + e.getEmpAddress() + "]");
+	        }
+	    }
+	}
 }
